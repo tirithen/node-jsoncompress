@@ -4,6 +4,11 @@
 
 A Node.js and browser JSON compression tool that uses JSON templates (inspired by https://github.com/Raveler/packetflattener), LZ, and optional float decimal reduction to compress JSON data for storage or sending over a network.
 
+## Installation for Node.js
+
+    $ cd /my/project/directory
+    $ npm install jsoncompress --save
+
 ## Example for Node.js
 
     'use strict';
