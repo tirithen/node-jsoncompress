@@ -128,3 +128,10 @@ module.exports.decompress = function decompress(data, template) {
 
   return data;
 };
+
+if (typeof window === 'object') {
+  window.jsoncompress = {
+    compress: module.exports.compress,
+    decompress: module.exports.decompress
+  };
+}

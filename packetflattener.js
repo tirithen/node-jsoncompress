@@ -72,7 +72,7 @@
       if (typeof template[templateKey].fromJSON === "function") {
 	data[dataKey] = template[templateKey].fromJSON(array[idx++]);
       } else {
-	data[dataKey] = new template[templateKey](array[idx++]);
+	data[dataKey] = new template[templateKey](parseInt(array[idx++], 10));
       }
     }
     else if (typeof(template[templateKey]) === "object") {
@@ -107,15 +107,7 @@
   }
 
   // Exports
-  if (typeof window === 'undefined') {
-    exports.flatten = flatten;
-    exports.unflatten = unflatten;
-
-  } else {
-    window.PacketFlattener = {
-      flatten: flatten,
-      unflatten: unflatten
-    };
-  }
+  exports.flatten = flatten;
+  exports.unflatten = unflatten;
 
 })(Array);

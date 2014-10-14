@@ -35,7 +35,7 @@ customObject.setString('testing custom object uppercase');
 var object = {
   id: 12345,
   name: 'Another position object, testing',
-  //date: testDate,
+  date: testDate,
   customObject: customObject,
   active: true,
   visible: false,
@@ -52,7 +52,7 @@ var object = {
   places: [
     {
       name: 'Park',
-      //date: testDate2,
+      date: testDate2,
       owner: {
 	name: 'Anna',
 	phone: '+46 70-1234567'
@@ -60,7 +60,7 @@ var object = {
     },
     {
       name: 'The Boat',
-      //date: testDate3,
+      date: testDate3,
       owner: {
 	name: 'Per',
 	phone: '+46 73-1234567'
@@ -72,7 +72,7 @@ var object = {
 var template = {
   id: 0,
   name: '',
-  //date: Date,
+  date: Date,
   customObject: Uppercase,
   active: true,
   visible: false,
@@ -87,7 +87,7 @@ var template = {
   places: [
     {
       name: '',
-      //date: Date,
+      date: Date,
       owner: {
 	name: '',
 	phone: ''
@@ -147,10 +147,10 @@ describe('jsoncompress', function () {
       assert.equal(decompressedLossyDecimal.position.z.toString().split('.').length < 3, true);
     });
 
-    /*it('should restore Date object from integer to object', function () {
+    it('should restore Date object from integer to object', function () {
       assert.equal(decompressed.date instanceof Date, true);
       assert.equal(decompressedLossyDecimal.date instanceof Date, true);
-    });*/
+    });
 
     it('should restore custom Uppercase object from string to object', function () {
       assert.equal(decompressed.customObject instanceof Uppercase, true);
