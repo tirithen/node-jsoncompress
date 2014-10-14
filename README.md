@@ -41,3 +41,7 @@ A Node.js and browser JSON compression tool that uses JSON templates (inspired b
         var decompressed = jsoncompress.decompress(compressed, template);
         console.log('Decompressed and restored data', decompressed);
     </script>
+
+## License
+
+This project is released under the GPLv3 license.

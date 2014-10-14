@@ -1,6 +1,6 @@
 {
   "name": "jsoncompress",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Node.js and browser JSON compression tool that uses JSON templates (inspired by https://github.com/Raveler/packetflattener), LZ, and optional float decimal reduction to compress JSON data for storage or sending over a network.",
   "main": "jsoncompress.js",
   "scripts": {
@@ -8,6 +8,11 @@
   },
   "author": "Fredrik Södeström <tirithen@gmail.com>",
   "license": "GPLv3",
+  "keywords": [
+    "compression",
+    "data",
+    "optimization"
+  ],
   "dependencies": {
     "lz-string": "^1.3.3"
   },
