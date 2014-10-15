@@ -1,7 +1,7 @@
 {
   "name": "jsoncompress",
   "main": "browser/jsoncompress.min.js",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "homepage": "https://github.com/tirithen/node-jsoncompress",
   "authors": [
     "Fredrik Söderström <tirithen@gmail.com>"
@@ -12,6 +12,10 @@
     "data",
     "optimization"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tirithen/node-jsoncompress"
+  },
   "license": "GPLv3",
   "ignore": [
     "**/.*",
