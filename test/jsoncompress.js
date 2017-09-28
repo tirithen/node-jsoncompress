@@ -39,6 +39,7 @@ var object = {
   customObject: customObject,
   active: true,
   visible: false,
+  testDefaultValue: null,
   position: {
     x: 10000.35453475,
     y: 5000.4,
@@ -76,6 +77,7 @@ var template = {
   customObject: Uppercase,
   active: true,
   visible: false,
+  testDefaultValue: 100,
   position: {
     x: 0,
     y: 0,
@@ -122,19 +124,26 @@ describe('jsoncompress', function () {
     var decompressed = jsoncompress.decompress(compressed, template);
     var decompressedLossyDecimal = jsoncompress.decompress(compressedLossyDecimal, template);
 
+    it('should take default value from the template ', function () {
+      assert.equal(decompressed.testDefaultValue, template.testDefaultValue);
+    });
+
     it('should convert properties back to the same type', function () {
       Object.keys(object).forEach(function (key) {
-	if (typeof object[key] === 'object') {
-	  Object.keys(object[key]).forEach(function (subKey) {
-	    assert.equal(typeof decompressed[key][subKey], typeof object[key][subKey]);
-	  });
-	}
-
-	assert.equal(typeof decompressed[key], typeof object[key]);
+	      if (object[key] && typeof object[key] === 'object') {
+	        Object.keys(object[key]).forEach(function (subKey) {
+	            assert.equal(typeof decompressed[key][subKey], typeof object[key][subKey]);
+	        });
+	      }
+        var expectedType = object[key] === null || object[key] === undefined
+          ? typeof template[key]
+          : typeof object[key];
+	      assert.equal(typeof decompressed[key], expectedType);
       });
     });
 
-    it('should decompress to exactly the same value', function () {
+    it('should decompress to exactly the same value except testDefaultValue', function () {
+      object.testDefaultValue = template.testDefaultValue;
       assert.equal(
 	JSON.stringify(decompressed),
 	JSON.stringify(object)
