@@ -50,16 +50,19 @@
     }
     else if (typeof(template) === "object") {
       if (template instanceof Array) {
-	array.push(data.length);
-	for (var i = 0; i < data.length; ++i) {
-	  arguments.callee(data[i], template[0], array);
-	}
+        array.push(data.length);
+        for (var i = 0; i < data.length; ++i) {
+          arguments.callee(data[i], template[0], array);
+        }
       }
       else if (template.constructor && template.constructor === Object) {
-	for (var key in template) {
-	  if (typeof(data[key]) === "undefined") arguments.callee(template[key], template[key], array);
-	  else arguments.callee(data[key], template[key], array);
-	}
+        for (var key in template) {
+          if (data[key] === null || typeof(data[key]) === "undefined") {
+            arguments.callee(template[key], template[key], array);
+          } else {
+            arguments.callee(data[key], template[key], array);
+          }
+        }
       }
     }
   }

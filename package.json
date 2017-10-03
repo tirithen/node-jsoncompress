@@ -29,7 +29,7 @@
     "grunt-contrib-uglify": "^0.6.0",
     "grunt-contrib-watch": "latest",
     "mocha": "^1.21.4",
-    "object-sizeof": "^0.1.2",
+    "object-sizeof": "^1.2.0",
     "socket.io": "^1.1.0"
   }
 }
